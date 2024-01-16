@@ -1,0 +1,44 @@
+/* Landing.module.css */
+
+.Landing {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Negro para dar un toque de sofisticación */
+  }
+  
+  .buttonLanding {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e10600; /* Rojo característico de la F1 */
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-out; /* Agregamos una transición suave al efecto de desplazamiento */
+  
+    /* Pseudo-elemento para agregar una línea animada al botón */
+    span {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0); /* Inicialmente, la línea no es visible */
+      transform-origin: right; /* La línea se expandirá hacia la izquierda */
+      transition: transform 0.3s ease-out;
+    }
+  
+    &:hover {
+      transform: translateY(-5px); /* Efecto de levantamiento al pasar el ratón */
+      span {
+        transform: scaleX(1); /* Expandir la línea al pasar el ratón */
+        transform-origin: left; /* La línea se expande hacia la derecha */
+      }
+    }
+  }
+  

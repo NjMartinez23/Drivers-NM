@@ -1,0 +1,25 @@
+/* searchBar.module.css */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  input {
+    padding: 8px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 8px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
