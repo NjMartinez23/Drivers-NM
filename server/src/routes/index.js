@@ -1,15 +1,8 @@
 const { Router } = require("express");
-const driversRouter = require('./drivers.routes');
-const teamsRouter = require('./teams.routes');
-
 const router = Router();
+const driver  = require("./driversRouter");
+const teams =require("./teamsRouter")
 
-router.use((req, res, next) => {
-    console.log(`Solicitud a la ruta: ${req.url}`);
-    next();
-});
-
-router.use('/drivers', driversRouter);
-router.use('/teams', teamsRouter);
-
+router.use("/",driver);
+router.use("/",teams);
 module.exports = router;

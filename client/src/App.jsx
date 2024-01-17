@@ -1,31 +1,31 @@
-/* Style */
-// import './App.css'
+import { Route, BrowserRouter, Routes, useLocation } from "react-router-dom";
+import Home from "./views/Home/Home";
+import DriverDetail from "./components/DetailPage/DetailPage";
+import { NavBar } from "./components/Navbar/NavBar";
+import Create from "./views/Create/Create"
+import Landing from "./views/Landing/Landing";
 
-/* Components to render */
-import NavBar from './components/NavBar/NavBar';
-import Home from './views/Home/Home';
-import Landing from './views/Landing/Landing';
-import Detail from './views/Detail/Detail';
-import Form from './views/Form/Form';
 
-/* Dependencies */
-import { Routes, Route, useLocation } from 'react-router-dom';
-
+function ConditionalNavBar() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  
+  return isHomePage ? null : <NavBar />;}
 function App() {
-
-  const { pathname } = useLocation();
-
   return (
     <div>
-       { pathname !== '/' && <NavBar  />}
-      <Routes>        
-        <Route path='/' element={ <Landing/> } />
-        <Route path='/home' element={ <Home/> } />
-        <Route path='/detail/:id' element={ <Detail/> } />
-        <Route path='/create' element={ <Form/> } />
-      </Routes>
+      <BrowserRouter>
+      <ConditionalNavBar />
+        <Routes>
+          <Route path={"*"} element={NavBar} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/detail/:id" element={<DriverDetail />} />
+          <Route path="/form" element={<Create/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
 export default App;

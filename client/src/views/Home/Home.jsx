@@ -1,163 +1,186 @@
-import  { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { filterByTeams, filterCreatedDriver, getAllDrivers, getTeams, orderByName, orderByDOB } from '../../redux/actions'
-import { Link } from 'react-router-dom'
-import SearchBar from '../../components/searchBar/SearchBar'
-import Paginate from '../../components/paginate/Paginate'
-import Card from '../../components/card/Card'
-import style from './Home.module.css'
+import { useDispatch, useSelector } from "react-redux";
+import Cards from "../../components/Cards/Cards";
+import React, { useEffect, useState } from "react";
+import {
+  getTeams,
+  getDrivers,
+  resetDrivers,
+  teamsFilter,
+  apiFilter,
+  orderByName,
+  orderByDate,
+} from "../../Redux/Actions/actions";
+import Paginado from "../../components/Paginado/Paginado";
+import "./style.css";
+import clearicon from "../../assets/Images/eraser.png";
 
+function Home() {
+  const dispatch = useDispatch();
+  const allDrivers = useSelector((state) => state.allDrivers);
+  const allTeams = useSelector((state) => state.driversTeams);
+  const auxiReload = useSelector((state) => state.newPostCounter);
 
-export default function Home() {
+  //!----------------------handleReset
+  const handleReset = () => {
+    dispatch(resetDrivers());
+    setstateTeamsFilter("DEFAULT");
+    setstateApiFilter("DEFAULT");
+    setorderDate("DEFAULT")
+    setorderName("DEFAULT")
+  };
+  //!----------------------handleReset
 
-  const dispatch = useDispatch()
-  const Drivers = useSelector((state) => state.allDrivers)
-  const Teams = useSelector((state) => state.allTeams)
-  console.log(Teams, 'hola');
-  //Estados del paginado
-  const [currentPage, setCurrentPage] = useState(1) //pagina actual y me setea esta 
-  const [driversPerPage] = useState(9) // va a setear cuantos pokes quiero por pagina
-  //constantes del paginado donde asocio las pag con los pokes por pag
-  const indexOfLastDriver = currentPage * driversPerPage //12
-  const indexOfFirstDriver = indexOfLastDriver - driversPerPage //0 
-  const currentDriver = Drivers?.slice(indexOfFirstDriver, indexOfLastDriver)
+  //*--------------------------------------------------
 
-  // me va a ayudar al renderizado
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
-  //fin de paginado
-  
-  // ciclo que maneja todos los Drivers
-  useEffect(() => {
-    dispatch(getAllDrivers())
-  }, [dispatch])
+  const [stateTeamsFilter, setstateTeamsFilter] = useState("DEFAULT");
+  const [stateApiFilter, setstateApiFilter] = useState("DEFAULT");
+  const [orderDate, setorderDate] = useState("DEFAULT");
+  const [orderName, setorderName] = useState("DEFAULT");
 
- 
-
-  //ciclo que busca por teams
-  useEffect(() => {
-    dispatch(getTeams())
-  }, [dispatch])
-
-
-
-  //permite volver a cargar todos los Drivers 
-  function handlerClick(event) {
-    event.preventDefault(); // para que no se recargue por defecto y asi no me rompa
-    dispatch(getAllDrivers());
-  }
-
-  //filtro de los teams
-  function handlerFilterStatus(event) {
+  //*--------------------------------------Filtros**
+  const handlerFilterTeams = (event) => {
     event.preventDefault();
-    dispatch(filterByTeams(event.target.value))
-    setCurrentPage(1)
-  }
+    const team = event.target.value;
 
-  //Filtrado por creado
+    setstateTeamsFilter(team);
+    dispatch(teamsFilter(team));
 
-  function handleFilterCreated(e) {
-    dispatch(filterCreatedDriver(e.target.value)) /* --> lo que viene del select que es el payload  */
-    setCurrentPage(1)
-  }
+  };
 
-  // ordenamiento descendente y ascendente
-  function handleSortName(e) {
-    e.preventDefault();
-    dispatch(orderByName(e.target.value));
-    setCurrentPage(1);
-  }
+  const handlerFilterApi = (event) => {
+    event.preventDefault();
+    const isApi = event.target.value;
 
-  function handleSortDOB(e) {
-    e.preventDefault();
-    dispatch(orderByDOB(e.target.value));
-    setCurrentPage(1);
-  }
+    setstateApiFilter(isApi);
+    dispatch(apiFilter(isApi));
+  };
+
+  //*--------------------------------------Ordenamiento**
+
+  const handlerOrderName = (event) => {
+    event.preventDefault();
+    const name = event.target.value;
+    setorderName(name);
+    dispatch(orderByName(name));
+  };
+  const handlerOrderDate = (event) => {
+    event.preventDefault();
+    const date = event.target.value;
+    setorderDate(date);
+    dispatch(orderByDate(date));
+  };
+
+  useEffect(() => {
+    dispatch(getDrivers());
+    dispatch(getTeams());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getDrivers());
+    dispatch(getTeams());
+  }, [auxiReload]);
 
   return (
-    <div className={style.containerHome}>
+    <div className="hme">
+      <div className="all-components">
+        <div className="filters-and-order">
+          <div className="filter-order-component">
+            <div className="order">
+              <div className="order-box"></div>
+              <div className="order-by-date">
+                <section>
+                  <select
+                    name="orderDate"
+                    value={orderDate}
+                    onChange={handlerOrderDate}
+                  >
+                    <option value="DEFAULT" disabled>
+                      Fecha de nacimiento
+                    </option>
+                    <option value="menor">Ascendente</option>
+                    <option value="mayor">Descendente</option>
+                  </select>
+                </section>
+              </div>
+              <div className="order-by-name">
+                {" "}
+                <section>
+                  <select
+                    name="orderName"
+                    value={orderName}
+                    onChange={handlerOrderName}
+                  >
+                    <option value="DEFAULT" disabled>
+                      {" "}
+                      Alfabetico{" "}
+                    </option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                  </select>
+                </section>
+              </div>
 
-      <div className={style.allOrder}>
-        {/* name */}
-        <div className={`${style.selectWrapper} ${style.selectOption}`}>
-          <select className="order" onChange={(e) => handleSortName(e)}>
-            <option>Select Order Alphabetical</option>
-            <option value="asc">Ascendent</option>
-            <option value="desc">Descendent</option>
-          </select>
+              <div className="ordenamiento">Ordenamiento:</div>
+            </div>
+            <div className="filters">
+              <div className="filter-box"></div>
+              <div className="filter-by-api">
+                <section>
+                  <select
+                    name="apiFilter"
+                    value={stateApiFilter}
+                    onChange={handlerFilterApi}
+                  >
+                    <option value="DEFAULT" disabled>
+                      {" "}
+                      Origen{" "}
+                    </option>
+                    <option value="false">Creados Por Usuario</option>
+                    <option value="true">Api Drivers</option>
+                  </select>
+                </section>
+              </div>
+              <div className="filter-by-teams">
+                <section>
+                  <select
+                    name="teamsFilter"
+                    value={stateTeamsFilter}
+                    onChange={handlerFilterTeams}
+                  >
+                    <option value="DEFAULT" disabled>
+                      {" "}
+                      Escuderias{" "}
+                    </option>
+                    {allTeams.map((team) => (
+                      <option key={team} value={team}>
+                        {" "}
+                        {team}{" "}
+                      </option>
+                    ))}
+                  </select>
+                </section>
+              </div>
+              <div className="filtrado">Filtrado:</div>
+            </div>
+            <div className="reset-button" onClick={handleReset}>
+              <div className="clear-button-box"></div>
+              <img className="clear-icon" src={clearicon} />
+              <div className="clean-filters">Reiniciar Filtros</div>
+            </div>
+          </div>
         </div>
-
-        <div className={`${style.selectWrapper} ${style.selectOption}`}>
-      <select className="dob" onChange={(e) => handleSortDOB(e)}>
-        <option>Select dob Order</option>
-        <option value="asc">Ascendent dob</option>
-        <option value="desc">Descendent dob</option>
-      </select>
+        <div className="paginate-box">
+          <Paginado />
+        </div>
+        <div className="block-container">
+          <div className="cards-container">
+            {" "}
+            <Cards info={allDrivers} />
+          </div>
+        </div>
+      </div>
     </div>
-
-     {/* mapeo de teams */}
-    <div className={`${style.selectWrapper} ${style.selectOption}`}>
-    <select key="uniqueKey" onChange={(e)=> handlerFilterStatus(e)} defaultValue='default'>
-    <option value="default" disabled>Select by teams</option>
-    {Teams.map((driver) => (
-        <option key={driver.id} value={driver.name}>
-            {driver.name}
-        </option>
-    ))}
-</select>
-    </div>
-
-    {/* filtro por procedencia */}
-
-    <div className={`${style.selectWrapper} ${style.selectOption}`}>
-      <select onChange={(e) => handleFilterCreated(e)}>
-        <option>Select Driver</option>
-        <option value="all">All Driver</option>
-        <option value="api">Driver Api</option>
-        <option value="dataBase">created Driver</option>          
-        </select>
-    </div>
-    <SearchBar />
-  </div>
-
-  <div className={style.buttonR}>
-    <button><Link to='/create' style={{ textDecoration: "none" }}>Create Driver</Link></button>
-    <button onClick={handlerClick}>Reload Driver</button>
-  </div>
-
-  <div>
-    <Paginate
-      currentPage={currentPage}
-      driversPerPage={driversPerPage}
-      Drivers={Drivers.length}
-      paginate={paginate}
-    />
-  </div>
-
-  <div className={style.cardTas}>
-    {currentDriver?.map(driver => (
-        <Card
-            key={driver.id}
-            id={driver.id}
-            name={`${driver.name.forename} ${driver.name.surname}`}
-            teams={driver.teams}
-            image={driver.image}
-            nationality={driver.nationality}
-            description={driver.description}
-            dob={driver.dob}
-        />
-    ))}
-  </div>
-
-  <div>
-    <Paginate
-      currentPage={currentPage}
-      driversPerPage={driversPerPage}
-      Drivers={Drivers.length}
-      paginate={paginate}
-    />
-  </div>
-</div>
-  )
+  );
 }
+
+export default Home;

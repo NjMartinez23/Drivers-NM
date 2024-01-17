@@ -1,15 +1,11 @@
-require("dotenv").config();
-const { Sequelize, BelongsToMany } = require("sequelize");
-
+const { Sequelize } = require("sequelize");
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
+require("dotenv").config();
+const { DB_USER, DB_PASSWORD, DB_HOST,} = process.env;
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/drivers`, {
   logging: false, 
-  native: false, 
 });
 const basename = path.basename(__filename);
 
@@ -21,20 +17,18 @@ fs.readdirSync(path.join(__dirname, '/models'))
     modelDefiners.push(require(path.join(__dirname, '/models', file)));
   });
 
-
-modelDefiners.forEach(model => model(sequelize));
+modelDefiners.forEach((model) => model(sequelize));
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Driver, Teams } = sequelize.models;
+const { Drivers,Teams } = sequelize.models;
 
 // Aca vendrian las relaciones
+Drivers.belongsToMany(Teams, {through: "Drivers_Teams",freezeTableName: true, timestamps: false})
+Teams.belongsToMany(Drivers, {through: "Drivers_Teams",freezeTableName: true, timestamps: false})
 // Product.hasMany(Reviews);
-
-Driver.belongsToMany(Teams, {through:'teamDriver'})
-Teams.belongsToMany(Driver, {through:'teamDriver'})
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

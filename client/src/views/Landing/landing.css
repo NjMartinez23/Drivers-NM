@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100&family=Tourney:wght@100&display=swap');
+.frames-1 {
+    display: flex;
+    background-image: url('../../assets/Images/detail__background.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1366px;
+    height: 651px;
+    position: relative;
+    overflow: hidden;
+    left: 0em;
+    top: 0em;
+  
+
+    
+    background: linear-gradient(
+      180deg,
+      rgba(41, 43, 36, 0.5) 0%,
+      rgba(0, 0, 0, 0.87) 100%
+    ), url('../../assets/Images/detail__background.jpg');
+  }
+
+
+.group-button {
+  position: absolute;
+  inset: 0;
+}
+.frames-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 868px;
+  top: 406px;
+}
+.button {
+  background: #d9d9d9;
+  flex-shrink: 0;
+  width: 344PX;
+  height: 89px;
+  position: relative;
+  box-shadow:inset 0px 1px 0px 0px #a00202;
+  background:linear-gradient(to bottom, #a00202 5%, #ad0101eb 100%);
+  background-color:#a00202;
+  border-radius:3px;
+  border:1px solid #ad0101eb;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ad0101eb;
+  color: #ffffff;
+  text-align: left;
+  font: 700 80px "Tourney", sans-serif;
+  position: relative;
+}
+
+.button:hover {
+	background:linear-gradient(to bottom, #c10202 5%, #c10202 100%);
+	background-color:#c10202;
+}
+
+.group-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 62px;
+  top: 63px;
+}
+.welcome {
+  color: #ffffff;
+  text-align: left;
+  font: 700 40px "IBM Plex Sans Devanagari", sans-serif;
+  position: relative;
+  width: 270px;
+  height: 55px;
+}
+.title {
+  color: #ffffff;
+  text-align: left;
+  font: 700 128px "IBM Plex Sans Devanagari", sans-serif;
+  position: relative;
+}
+
