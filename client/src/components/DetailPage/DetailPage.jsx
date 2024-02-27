@@ -41,7 +41,7 @@ if (!driver) {
       <div className="description-container">
         <div className="rectangle-9"></div>
         <div className="frame-6">
-          <div className="description-title">※ Descripción</div>
+          <div className="description-title"> Descripción</div>
           <div className="rectangle-10"></div>
           <div className="description-text">{driver.description}
           </div>
@@ -58,7 +58,7 @@ if (!driver) {
           <div className="rectangle-8"></div>
         </div>
         <div className="texto-fijo">
-          <div className="titulo-general">※ Información General</div>
+          <div className="titulo-general"> Información General</div>
           <div className="nacionalidad">Nacionalidad</div>
           <div className="fecha-de-nacimiento">Fecha de Nacimiento</div>
           <div className="escuder-as">Escuderías.</div>

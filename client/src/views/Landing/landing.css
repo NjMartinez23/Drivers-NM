@@ -1,46 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100&family=Tourney:wght@100&display=swap');
 .frames-1 {
-    display: flex;
-    background-image: url('../../assets/Images/detail__background.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 1366px;
-    height: 651px;
-    position: relative;
-    overflow: hidden;
-    left: 0em;
-    top: 0em;
-  
+  display: flex;
+  background-image: url('../../assets/Images/landing.jpg');
+  background-size: cover; /* Cubre todo el área del contenedor */
+  background-repeat: no-repeat;
+  width: 100%; /* Ancho al 100% para adaptarse a cualquier tamaño de pantalla */
+  height: 100vh; /* Altura al 100% de la ventana del navegador */
+  position: relative;
+  overflow: hidden; /* Oculta el desbordamiento */
+  background: linear-gradient(
+    180deg,
+    rgba(41, 43, 36, 0.5) 0%,
+    rgba(0, 0, 0, 0.87) 100%
+  ), url('../../assets/Images/landing.jpg');
+}
 
-    
-    background: linear-gradient(
-      180deg,
-      rgba(41, 43, 36, 0.5) 0%,
-      rgba(0, 0, 0, 0.87) 100%
-    ), url('../../assets/Images/detail__background.jpg');
-  }
-
+body, .frames-1 {
+  margin: 0; /* Elimina los márgenes */
+  padding: 0; /* Elimina el relleno */
+}
 
 .group-button {
   position: absolute;
   inset: 0;
+  display: flex;
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  align-items: center; /* Centrar los elementos verticalmente */
 }
+
 .frames-2 {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  left: 868px;
-  top: 406px;
+  align-items: center; /* Centrar los elementos horizontalmente */
 }
+
 .button {
   background: #d9d9d9;
   flex-shrink: 0;
   width: 344PX;
   height: 89px;
-  position: relative;
+  position: fixed;
+  top: 300px;
+  left: 700px;
   box-shadow:inset 0px 1px 0px 0px #a00202;
   background:linear-gradient(to bottom, #a00202 5%, #ad0101eb 100%);
   background-color:#a00202;
@@ -68,25 +70,23 @@
 .group-text {
   display: flex;
   flex-direction: column;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  left: 62px;
-  top: 63px;
-}
-.welcome {
-  color: #ffffff;
-  text-align: left;
-  font: 700 40px "IBM Plex Sans Devanagari", sans-serif;
-  position: relative;
-  width: 270px;
-  height: 55px;
-}
-.title {
-  color: #ffffff;
-  text-align: left;
-  font: 700 128px "IBM Plex Sans Devanagari", sans-serif;
-  position: relative;
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  height: 25vh; /* Altura del viewport */
+  z-index: 900;
+  margin-left: 650px;
+  background-color: rgba(12, 12, 12, 0.5); 
+  padding: 60px;
 }
 
+.title {
+  color: #ffffff;
+  text-align: center;
+  font: 700 128px "IBM Plex Sans Devanagari", sans-serif;
+}
+
+.welcome {
+  color: #ffffff;
+  text-align: center;
+  font: 700 40px "IBM Plex Sans Devanagari", sans-serif;
+}

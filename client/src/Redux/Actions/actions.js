@@ -63,7 +63,7 @@ export function postDriver(state) {
   return async function () {
     try {
       await axios.post("http://localhost:3001/drivers", state);
-      alert("Driver creado exitosamente");
+      ("Driver creado exitosamente");
     } catch (error) {
       alert(error.response.data.error);
     }

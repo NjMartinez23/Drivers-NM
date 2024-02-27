@@ -1,38 +1,62 @@
-.hme,
+/* .hme,
 .hme * {
   box-sizing: border-box;
-}
+} */
 .hme {
-    background: rgb(255, 255, 255);
-    width: 1349px;
-    height: 2102px;
-    position: relative;
-    overflow: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(41, 43, 36, 0.5) 0%,
+    rgba(0, 0, 0, 0.87) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden; /* Ocultar barra de desplazamiento horizontal */
+  overflow-y: auto; /* Mostrar barra de desplazamiento vertical si es necesario */
 }
+
 .all-components {
   display: flex;
   flex-direction: column;
   gap: 31px;
   align-items: center;
-  justify-content: flex-start;
-  position: absolute;
-  left: 0px;
-  top: 38px;
+  max-width: 1349px;
+  width: 100%;
+  padding: 20px; /* Añadir relleno para evitar que los elementos se peguen a los bordes */
+  margin-top: 20px; /* Añadir margen superior para separar los elementos de la parte superior de la página */
 }
+
 .filters-and-order {
-  flex-shrink: 0;
-  width: 1349px;
-  height: 98px;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1349px;
+  width: 100%;
+  padding: 20px; /* Añadir relleno para evitar que los elementos se peguen a los bordes */
+  margin-top: 20px; /* Añadir margen superior para separar los elementos de la parte superior de la página */
 }
+
+
 .filter-order-component {
-  width: 1349px;
-  height: 98px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+  width: 100%;
+  max-width: 1349px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
 }
+
+.order,
+.filters {
+  position: relative; /* Cambiado a relativo para que no se superpongan con la barra de navegación */
+  width: 100%; /* Ancho al 100% */
+  max-width: 1920px; /* Ancho máximo */
+}
+
 .order {
   position: absolute;
   inset: 0;
@@ -182,6 +206,7 @@
     height: auto;
     position: relative;
     overflow: hidden;
+     margin-top: 100px;
 }
 .block-container {
     background: rgba(0, 0, 0, 0.87);

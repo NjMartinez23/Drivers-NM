@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import {
   getTeams,
   getDrivers,

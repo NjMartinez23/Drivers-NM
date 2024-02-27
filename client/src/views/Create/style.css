@@ -1,8 +1,12 @@
 .form-cont form{
     display: flex;
+    background-image: url('../../assets/Images/form.jpg');
+    background-size:contain;
+    background-repeat:no-repeat;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 70vw;
 }
 
 .form-cont form input{

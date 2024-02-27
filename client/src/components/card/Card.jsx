@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 
@@ -16,7 +15,7 @@ const Card = ({ id, forename, lastname, image_url, teams }) => {
         <div className={style.nombre}>Nombre:</div>
         <div className={style.cardname}> {forename + " " + lastname}</div>
         <div className={style.escuderia}>Escuderia:</div>
-        <div className={style.cardteams}>{teams.join(" |♦| ")}</div>
+        <div className={style.cardteams}>{teams.join(" | ")}</div>
         <Link to={`/detail/${id}`}>
           <div className={style.button}>
             <div className={style.vermas}>VER MAS</div>

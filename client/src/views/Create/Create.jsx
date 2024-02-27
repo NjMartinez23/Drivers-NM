@@ -13,8 +13,8 @@ const Create = () => {
 
   const driversTeams = useSelector((state) => state.driversTeams);
   const allDrivers = useSelector((state)=>state.allDriversBackup);
-  const countrys=allDrivers?.map((d)=>d.nationality)
-  const uniqueCountrys = [...new Set(countrys)];
+  const drivers=allDrivers?.map((d)=>d.nationality)
+  const uniqueDrivers = [...new Set(drivers)];
 
   const [state, setState] = useState({
     forename: "",
@@ -87,7 +87,8 @@ const Create = () => {
         setErrors({ ...errors, dob: "" });
         return;
       }
-    } else if (name === "teams") {
+    } 
+    else if (name === "teams") {
       if (state.teams === "") {
         setErrors({
           ...errors,
@@ -180,7 +181,7 @@ return(
         </div>
         <label>Nacionalidad: </label>
         <select onChange={handleChange} name="nationality" id="nationality">
-          {uniqueCountrys.map((uc) => (
+          {uniqueDrivers.map((uc) => (
             <option key={uc} value={uc}>
               {uc}
             </option>
