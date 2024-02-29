@@ -11,15 +11,15 @@
     rgb(0, 0, 0) 5.2719417959451675%,
     rgb(54, 54, 53) 70.3125%
   );
-  border-style: dashed;
+  border-style:groove;
   border-color: #a00202;
   border-width: 2px;
   padding: 14px 31px 14px 31px;
-  width: 100%; /* Cambiado a 100% para cubrir toda la parte superior */
+  width: 100%; 
   height: 80px;
-  position: fixed; /* Cambiado a fixed para que permanezca fijo en la parte superior */
-  top: 0; /* Alineado en la parte superior */
-  left: 0; /* Alineado a la izquierda */
+  position: fixed; 
+  top: 0; 
+  left: 0; 
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
   overflow: hidden;
 }
@@ -50,6 +50,7 @@
     height: 36px;
     position: relative;
     overflow: hidden;
+    right: 35px;
 }
 
 .homebutt {
@@ -58,7 +59,7 @@
 }
 
 .home-button-box {
-    background: #c6c6c6;
+    background: #ffffffea;
     border-radius: 6px;
     width: 113px;
     height: 30px;
@@ -94,6 +95,7 @@
     flex-shrink: 0;
     width: 270px;
     height: 36px;
+    left: 225px;
     position: relative;
     overflow: hidden;
 }
@@ -104,7 +106,7 @@
 }
 
 .new-driver-box {
-    background: #c6c6c6;
+    background: #ffffffea;
     border-radius: 6px;
     width: 253px;
     height: 30px;
@@ -138,12 +140,14 @@
 
 .search-input {
     flex-shrink: 0;
-    width: 334px;
+    width: 370px;
     height: 50px;
+    left: 40px;
+    position: relative;
     overflow: hidden;
     background-color: rgba(128, 128, 128, 0);
     display: grid;
-    grid-template-columns: 286px 1px 37px;
+    grid-template-columns: 300px 1px 37px;
     grid-template-rows: 40px;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -187,8 +191,8 @@
 }
 
 .search-img {
-  width: 37px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
 
   left: 0px;
   top: 0px;
@@ -200,7 +204,7 @@
   text-align: left;
   font: 400 24px "Inter", sans-serif;
   
-  left: 14px;
+  left: 5px;
   top: 2px;
   width: 286px;
   height: 36px;

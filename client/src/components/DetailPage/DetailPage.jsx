@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDriver } from "../../Redux/Actions/actions";
 import './style.css';
-import background from "../../assets/Images/detail__background.jpg"
+
 
 
 const useGetDriver = () => {
@@ -36,7 +36,6 @@ if (!driver) {
 
         
     <div className="detail-page">
-    <img className="backgroundimage" src={background} />
     <div className="info-group">
       <div className="description-container">
         <div className="rectangle-9"></div>

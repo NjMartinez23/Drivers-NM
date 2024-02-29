@@ -18,20 +18,20 @@
 }
 .fondoProfile{
   display: flex;
-  background-color: #ffffff;
+  background-color: #ffffffea;
   width: 400px;
   align-items: center;
   justify-content: center;
 }
 .profillepicture {
   flex-shrink: 0;
-  width: auto;
+  width:400px;
   height: 400px;
   position: center;
   overflow: hidden;
 }
 .cardinfo {
-  background: #ffffff;
+  background: #ffffffea;
   padding: 30px;
   display: flex;
   flex-direction: column;

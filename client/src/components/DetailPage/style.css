@@ -3,23 +3,18 @@
   box-sizing: border-box;
 }
 .detail-page {
-  background: #ffffff;
-  width: 1366px;
-  height: 651px;
-  position: relative;
-  overflow: hidden;
-}
-.backgroundimage {
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.33) 0%,
-    rgb(100, 100, 100) 98.4375%
+    rgba(41, 43, 36, 0.5) 0%,
+    rgba(0, 0, 0, 0.87) 100%
   );
-  width: 1366px;
-  height: 651px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden; /* Ocultar barra de desplazamiento horizontal */
+  overflow-y: auto; /* Mostrar barra de desplazamiento vertical si es necesario */;
 }
 .info-group {
   position: absolute;
@@ -29,21 +24,18 @@
   width: 686px;
   height: 321px;
   position: absolute;
-  left: calc(50% - 137px);
-  top: 312px;
+  left: 900px;
+  top: 470px;
   overflow: hidden;
 }
 .rectangle-9 {
-  background: rgba(214, 214, 214, 0.9);
-  border-radius: 50px;
+   background-color: #ffffffea;
+  border-radius: 10px;
   border-style: solid;
   border-color: #a00202;
-  border-width: 1px;
+  border-width: 3px;
   width: 659px;
   height: 305px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
   box-shadow: 10px 10px 12px 0px rgba(0, 0, 0, 0.4);
 }
 .frame-6 {
@@ -68,10 +60,10 @@
   justify-content: flex-start;
 }
 .rectangle-10 {
-  border-radius: 25px;
+  border-radius: 10px;
   border-style: solid;
-  border-color: #b6b3b3;
-  border-width: 1px;
+  border-color: #a00202;
+  border-width: 2px;
   flex-shrink: 0;
   width: 618px;
   height: 204px;
@@ -92,53 +84,35 @@
   overflow: auto;
   align-items: baseline;
 }
-.button-back {
-  padding: 6px 9px 6px 9px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  left: calc(50% - -549px);
-  top: calc(50% - 295.5px);
-  overflow: hidden;
-}
-.back-icon {
-  flex-shrink: 0;
-  width: 103px;
-  height: 114px;
-  position: relative;
-  box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.4);
-}
+
 .tabla-general {
   width: 598px;
   height: 252px;
   position: absolute;
-  left: 576px;
-  top: 30px;
+  left: 920px;
+  top: 100px;
 }
 .tabla {
   position: absolute;
   inset: 0;
 }
 .rectangle-2 {
-  background: rgb(219, 214, 214);
-  border-radius: 50px;
+   background-color:#ffffffea;
+  border-radius: 10px;
   border-style: solid;
   border-color: #a00202;
-  border-width: 1px;
+  border-width: 3px;
   width: 598px;
   height: 252px;
   position: absolute;
   left: 0px;
-  top: 0px;
+  top: 10px;
   box-shadow: 10px 10px 12px 0px rgba(0, 0, 0, 0.4);
 }
 .rectangle-3 {
   border-style: solid;
-  border-color: #7d7373;
-  border-width: 1px;
+  border-color: #000000;
+  border-width: 2px;
   width: 170.99px;
   height: 37px;
   position: absolute;
@@ -147,8 +121,8 @@
 }
 .rectangle-5 {
   border-style: solid;
-  border-color: #7d7373;
-  border-width: 1px;
+  border-color: #000000;
+  border-width: 2px;
   width: 170.99px;
   height: 73px;
   position: absolute;
@@ -157,8 +131,8 @@
 }
 .rectangle-4 {
   border-style: solid;
-  border-color: #7d7373;
-  border-width: 1px;
+  border-color: #000000;
+  border-width: 2px;
   width: 170.99px;
   height: 39px;
   position: absolute;
@@ -167,8 +141,8 @@
 }
 .rectangle-6 {
   border-style: solid;
-  border-color: #7d7373;
-  border-width: 1px;
+  border-color: #000000;
+  border-width: 2px;
   width: 360.67px;
   height: 37px;
   position: absolute;
@@ -177,8 +151,8 @@
 }
 .rectangle-7 {
   border-style: solid;
-  border-color: #7d7373;
-  border-width: 1px;
+  border-color: #000000;
+  border-width: 2px;
   width: 360.67px;
   height: 73px;
   position: absolute;
@@ -187,8 +161,8 @@
 }
 .rectangle-8 {
   border-style: solid;
-  border-color: #7d7373;
-  border-width: 1px;
+  border-color: #000000;
+  border-width: 2px;
   width: 360.67px;
   height: 39px;
   position: absolute;
@@ -295,7 +269,7 @@
   justify-content: center;
 }
 .card-container {
-  border-radius: 49px;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -304,17 +278,17 @@
   width: 404px;
   height: 591px;
   position: absolute;
-  left: 84px;
-  top: 30px;
+  left: 350px;
+  top: 150px;
   box-shadow: 10px 10px 12px 0px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 .card-form {
-  background: rgb(219, 214, 214);
-  border-radius: 49px;
+  background-color: #ffffffea;;
+  border-radius: 10px;
   border-style: solid;
   border-color: #a00202;
-  border-width: 1px;
+  border-width: 3px;
   flex-shrink: 0;
   width: 404px;
   height: 591px;
@@ -348,10 +322,10 @@
   height: 50px;
 }
 .image-profile {
-  border-radius: 50px;
+  border-radius: 10px;
   border-style: solid;
   border-color: #a00202;
-  border-width: 1px;
+  border-width: 3px;
   flex-shrink: 0;
   width: 325px;
   height: 417px;

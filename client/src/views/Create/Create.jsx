@@ -29,7 +29,7 @@ const Create = () => {
   const [errors, setErrors] = useState({
     forename: "Nombre es requerido",
     lastname: "Apellido es Requerido",
-    dob: "El Formato de año correcto es YYYY-MM-DD",
+    dob: "El Formato de fecha correcto es YYYY-MM-DD",
     teams: "Debe Agregar al menos una escuderia",
     nationality: "Debe Seleccionar una Nacionalidad",
     image_url: "",
@@ -44,7 +44,7 @@ const Create = () => {
       else if (state.forename.length > 10 || state.forename.length < 3)
         setErrors({
           ...errors,
-          forename: "el Nombre del heroe debe contener entre 3 y 10 caracteres",
+          forename: "el Nombre del Conductor debe contener entre 3 y 10 caracteres",
         });
       else if (!regex.test(state.forename))
         setErrors({
@@ -60,7 +60,7 @@ const Create = () => {
       if (state.lastname === "")
         setErrors({ ...errors, lastname: "Apellido es requerido." });
       else if (state.lastname.length > 10 || state.lastname.length < 3)
-        setErrors({ ...errors, lastname: "El Apellido es muy largo." });
+        setErrors({ ...errors, lastname: "El Apellido no valido." });
       else if (!regex.test(state.lastname))
         setErrors({
           ...errors,
@@ -150,20 +150,21 @@ return(
       <form onSubmit={handleSubmit}>
         <label>Nombre: </label>
         <input onChange={handleChange} name="forename" type="text" />
-        <label className="form-error">{errors.forename}</label>
+        <div className="form-error">{errors.forename}</div>
         <label>Apellido: </label>
         <input onChange={handleChange} name="lastname" type="text" />
-        <label className="form-error">{errors.lastname}</label>
+        <div className="form-error">{errors.lastname}</div>
         <label>Imagen: </label>
         <input onChange={handleChange} name="image_url" type="text" />
-        <label className="form-error">{errors.image_url}</label>
+        <div className="form-error">{errors.image_url}</div>
         <label>Fecha de Nacimiento: </label>
         <input onChange={handleChange} name="dob" type="text" />
-        <label className="form-error">{errors.dob}</label>
+        <div className="form-error">{errors.dob}</div>
         <label>Descripcion: </label>
         <input onChange={handleChange} name="description" type="text" />
-        <label className="form-error">{errors.description}</label>
+        <div className="form-error">{errors.description}</div>
         <label>Escuderias: </label>
+        <div className="input-select">
         <select onChange={handleChange} name="teams" id="teams">
           {driversTeams.map((dt) => (
             <option key={dt} value={dt}>
@@ -171,6 +172,7 @@ return(
             </option>
           ))}
         </select>
+        </div>
 
         <div className="form-info-cont">
           {state.teams.map((t) => (
@@ -180,6 +182,8 @@ return(
           ))}
         </div>
         <label>Nacionalidad: </label>
+        
+        <div className="input-select">
         <select onChange={handleChange} name="nationality" id="nationality">
           {uniqueDrivers.map((uc) => (
             <option key={uc} value={uc}>
@@ -187,6 +191,7 @@ return(
             </option>
           ))}
         </select>
+        </div>
 
         <div className="form-info-cont">         
             <div key={state.nationality} className="form-label">

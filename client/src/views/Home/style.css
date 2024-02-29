@@ -58,21 +58,20 @@
 }
 
 .order {
-  position: absolute;
   inset: 0;
 }
 .order-box {
     background: #a00202;
     border-radius: 10px;
-    width: 380px;
+    width: 320px;
     height: 44px;
     position: absolute;
-    left: 859px;
+    left: 880px;
     top: 45px;
     overflow: hidden;
 }
 .order-by-date {
-  background: #d9d9d9;
+  background: #ffffffea;
   height: 27px;
   position: absolute;
   left: 890px;
@@ -81,13 +80,13 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 10px;
+  border-radius: 5px;
   
 }
 .order-by-name {
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
-    background: #d9d9d9;
+    background: #ffffffea;
     width: 96px;
     height: 27px;
     position: absolute;
@@ -120,14 +119,14 @@
     width: 450px;
     height: 44px;
     position: absolute;
-    left: 46px;
+    left: 50px;
     top: 43px;
     overflow: hidden;
 }
 .filter-by-api {
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
-    background: #d9d9d9;
+    background: #ffffffea;
     width: 163px;
     height: 27px;
     position: absolute;
@@ -137,7 +136,7 @@
     justify-content: center;
 }
 .filter-by-teams {
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     background: #d9d9d9;
     width: 223px;
@@ -191,7 +190,7 @@
   text-align: left;
   font: 400 24px "Racing Sans One", sans-serif;
   position: absolute;
-  left: 46px;
+  left: 35px;
   top: 3px;
   width: 195px;
   height: 40px;

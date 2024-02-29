@@ -40,7 +40,6 @@ body, .frames-1 {
   flex-shrink: 0;
   width: 344PX;
   height: 89px;
-  position: fixed;
   top: 300px;
   left: 700px;
   box-shadow:inset 0px 1px 0px 0px #a00202;
